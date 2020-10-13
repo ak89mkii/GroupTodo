@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo!</title>
+</head>
+<body>
+    <h1>ToDos</h1>
+    <a href="{% url 'create_todo' %}">Add Todo</a>
+
+    <h2>Todo List</h2>
+    {% if todo_list %}
+    <ul>
+    {% for todo in todo_list %}
+            <li>{{todo.name}}<a href="{% url 'delete_todo' todo.id %}">X</a></li>
+    {% endfor %}
+    </ul>
+    {% else %}
+    <h3>There are no todos!</h3>
+    {% endif %}
+</body>
+</html>
